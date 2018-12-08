@@ -60,21 +60,7 @@ run tests:
 yarn test
 ```
 
-## Builds
-
-To make sure our builds work in different environments
-
-we introduce environment variables.
-
-```
- "build-dev": "REACT_APP_BUILD=dev npm-run-all build-css build-js",
- "build-prod": "REACT_APP_BUILD=prod npm-run-all build-css build-js",
- "build-test": "REACT_APP_BUILD=test npm-run-all build-css build-js",
-```
-
-With environment variables in place we are able to add conditional statements
-
-around what block of code we want to execute or what URLs we want to hit in different environments.
+Tests will run during commit
 
 ## Styles
 
