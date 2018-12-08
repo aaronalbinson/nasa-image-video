@@ -1,4 +1,10 @@
-# React-template
+# NASA Assets
+
+## Demo
+
+Netlify demo of the NASA assets
+
+[Live demo](https://nasa-assets.netlify.com/)
 
 ## Installation
 
@@ -67,6 +73,7 @@ Tests will run during commit
 NASA colours have been selected using the RGB values from [NASA's Style Guide](https://sservi.nasa.gov/wp-content/uploads/2011/10/NASA_Style_Guide_v2.1.pdf)
 
 ## Things to discuss
+
 Sass
 Netlify
 CircleCI
