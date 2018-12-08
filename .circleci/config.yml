@@ -38,5 +38,3 @@ jobs:
       - run: yarn lint
       # added yarn linting
       - run: yarn test
-
-     .circleci
