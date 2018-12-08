@@ -60,6 +60,8 @@ run tests:
 yarn test
 ```
 
+Tests will run during commit
+
 ## Styles
 
 NASA colours have been selected using the RGB values from [NASA's Style Guide](https://sservi.nasa.gov/wp-content/uploads/2011/10/NASA_Style_Guide_v2.1.pdf)
