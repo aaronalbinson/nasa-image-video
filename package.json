@@ -16,14 +16,11 @@
     "start": "npm-run-all -p watch-css start-js",
     "build-js": "react-scripts build",
     "build": "npm-run-all build-css build-js",
-    "build-dev": "REACT_APP_BUILD=dev npm-run-all build-css build-js",
-    "build-prod": "REACT_APP_BUILD=prod npm-run-all build-css build-js",
-    "build-test": "REACT_APP_BUILD=test npm-run-all build-css build-js",
     "test": "react-scripts test --env=jsdom",
-    "storybook": "concurrently \"npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive\" \"start-storybook -p 9009 -s public\"",
-    "build-storybook": "build-storybook -s public",
+    "test:nowatch": "CI=true react-scripts-ts test --env=jsdom",
     "build-css": "node-sass-chokidar src/ -o src/",
-    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "watch-css":
+      "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "lint": "eslint ./src"
   },
   "engines": {
@@ -60,7 +57,5 @@
     "stylelint-config-standard": "18.2.0",
     "stylelint-scss": "3.1.0"
   },
-  "pre-commit": [
-    "lint"
-  ]
+  "pre-commit": ["lint", "test:nowatch"]
 }
