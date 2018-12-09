@@ -9,7 +9,8 @@ class SearchForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchValue: ""
+      searchValue: "",
+      error: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.loadSearchData = this.loadSearchData.bind(this);
@@ -21,7 +22,9 @@ class SearchForm extends React.Component {
   }
 
   loadSearchData() {
-    search(this.state.searchValue);
+    search(this.state.searchValue).then(response => {
+      console.log(response);
+    });
   }
   render() {
     return (
