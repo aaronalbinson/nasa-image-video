@@ -1,17 +1,13 @@
 function getData(searchQuery) {
   const url = `https://images-api.nasa.gov/search?q=${searchQuery}`;
 
-  fetch(url, {
-    method: "GET"
-  })
+  fetch(url)
     .then(response => {
-      if (response.ok) {
-        console.log(response.json());
-        return response.json();
-      }
-      throw Error(response.statusText);
+      return response.json();
     })
-
+    .then(data => {
+      console.log(data);
+    })
     .catch(err => console.log(err.message));
 }
 
