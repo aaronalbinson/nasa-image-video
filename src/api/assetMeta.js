@@ -1,5 +1,5 @@
 async function getData(nasaId) {
-  const url = `https://images-api.nasa.gov/asset/${nasaId}`;
+  const url = `https://images-api.nasa.gov/metadata/${nasaId}`;
 
   try {
     const res = await fetch(url);
