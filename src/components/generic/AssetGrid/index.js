@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
@@ -17,7 +18,7 @@ class AssetGrid extends React.Component {
     return (
       <React.Fragment>
         <Grid container className="assetGrid" spacing={24}>
-          {data &&
+          {data ? (
             data.items.filter(asset => asset.links).map(asset =>
               asset.links.map(assetLink => (
                 <Grid
@@ -28,7 +29,6 @@ class AssetGrid extends React.Component {
                   key={assetLink.href}
                   className="assetGridItem"
                 >
-                  {asset.data.map(dataItems => console.log(dataItems))}
                   <Card>
                     {asset.data.map(dataItems => (
                       <CardHeader
@@ -49,14 +49,19 @@ class AssetGrid extends React.Component {
                           </Typography>
                         </CardContent>
                         <CardActions>
-                          <Button size="small">Learn More</Button>
+                          <Button component={Link} to="/asset" size="small">
+                            Learn More
+                          </Button>
                         </CardActions>
                       </React.Fragment>
                     ))}
                   </Card>
                 </Grid>
               ))
-            )}
+            )
+          ) : (
+            <Grid item>Use the search above</Grid>
+          )}
         </Grid>
       </React.Fragment>
     );
