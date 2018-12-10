@@ -47,14 +47,14 @@ class Asset extends React.Component {
         <Card className="asset">
           <CardContent>
             <Grid container className="asset" spacing={24}>
-              <Grid item>
+              <Grid item xs={12}>
                 <Typography variant="h3">
                   {this.state.assetData["XMP:Title"]
                     ? this.state.assetData["XMP:Title"]
                     : this.state.assetid}
                 </Typography>
               </Grid>
-              <Grid item>
+              <Grid item xs={12}>
                 <img
                   src={
                     this.state.assetImageData &&
