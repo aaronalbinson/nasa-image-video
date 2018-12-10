@@ -1,9 +1,9 @@
 import React from "react";
+import PropTypes from "prop-types";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Button from "@material-ui/core/Button";
 import SvgIcon from "@material-ui/core/SvgIcon";
-import search from "../../../api/search";
 
 class SearchForm extends React.Component {
   constructor(props) {
@@ -12,20 +12,13 @@ class SearchForm extends React.Component {
       searchValue: "",
       error: ""
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.loadSearchData = this.loadSearchData.bind(this);
+    this.handleButtonClicked = this.handleButtonClicked.bind(this);
   }
 
-  handleChange(event) {
-    const query = event.target.value;
-    this.setState({ searchValue: query });
+  handleButtonClicked(event) {
+    this.props.buttonClicked(event);
   }
 
-  loadSearchData() {
-    search(this.state.searchValue).then(response => {
-      console.log(response);
-    });
-  }
   render() {
     return (
       <React.Fragment>
@@ -41,12 +34,17 @@ class SearchForm extends React.Component {
               </InputAdornment>
             )
           }}
-          onChange={this.handleChange}
+          onChange={this.props.handleChange}
         />
-        <Button onClick={this.loadSearchData}>Search</Button>
+        <Button onClick={this.handleButtonClicked}>Search</Button>
       </React.Fragment>
     );
   }
 }
+
+SearchForm.propTypes = {
+  buttonClicked: PropTypes.func,
+  handleChange: PropTypes.func
+};
 
 export default SearchForm;
