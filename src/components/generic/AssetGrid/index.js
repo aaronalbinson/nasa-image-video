@@ -49,7 +49,11 @@ class AssetGrid extends React.Component {
                           </Typography>
                         </CardContent>
                         <CardActions>
-                          <Button component={Link} to="/asset" size="small">
+                          <Button
+                            component={Link}
+                            to={`/asset/${dataItems.nasa_id}`}
+                            size="small"
+                          >
                             Learn More
                           </Button>
                         </CardActions>

@@ -4,6 +4,7 @@ import { withRouter } from "react-router";
 import { Switch, Route, Redirect } from "react-router-dom";
 import SearchForm from "../src/components/generic/SearchForm";
 import AssetGrid from "../src/components/generic/AssetGrid";
+import Asset from "../src/components/generic/Asset";
 import theme from "./styles/theme";
 import search from "../src/api/search";
 
@@ -51,7 +52,7 @@ class App extends Component {
                 </React.Fragment>
               )}
             />
-            <Route path="/asset" render={() => "Hello"} />
+            <Route path="/asset" render={() => <Asset />} />
           </Switch>
         </div>
       </MuiThemeProvider>
