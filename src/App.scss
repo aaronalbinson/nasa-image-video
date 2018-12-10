@@ -1,3 +1,16 @@
+@import "./styles/_variables";
+
 .App {
   color: black;
+}
+
+.appTitle {
+  background-color: $core_color-nasa-blue;
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  h2 {
+    color: $core_color-neutral-white;
+    display: block;
+  }
 }

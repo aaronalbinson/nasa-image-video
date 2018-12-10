@@ -1,5 +1,5 @@
 async function getData(searchQuery) {
-  const url = `https://images-api.nasa.gov/search?q=${searchQuery}`;
+  const url = `https://images-api.nasa.gov/search?q=${searchQuery}&media_type=image`;
 
   try {
     const res = await fetch(url);

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { MuiThemeProvider } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography/Typography";
+import Grid from "@material-ui/core/Grid/Grid";
 import { withRouter } from "react-router";
 import { Switch, Route, Redirect } from "react-router-dom";
 import SearchForm from "../src/components/generic/SearchForm";
@@ -37,23 +39,32 @@ class App extends Component {
     return (
       <MuiThemeProvider theme={theme}>
         <div className="App">
-          <Switch>
-            <Redirect exact from="/" to="search" />
-            <Route
-              exact
-              path="/search"
-              render={() => (
-                <React.Fragment>
-                  <SearchForm
-                    handleChange={this.handleChange}
-                    buttonClicked={() => this.loadSearchData()}
-                  />
-                  <AssetGrid data={this.state.searchResult} />
-                </React.Fragment>
-              )}
-            />
-            <Route path="/asset" render={() => <Asset />} />
-          </Switch>
+          <Grid container spacing={24}>
+            <Grid xs={12} item className="appTitle">
+              <Typography variant="h2">NASA Assets Library Search</Typography>
+            </Grid>
+            <Switch>
+              <Redirect exact from="/" to="search" />
+              <Route
+                exact
+                path="/search"
+                render={() => (
+                  <React.Fragment>
+                    <Grid item xs={12}>
+                      <SearchForm
+                        handleChange={this.handleChange}
+                        buttonClicked={() => this.loadSearchData()}
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <AssetGrid data={this.state.searchResult} />
+                    </Grid>
+                  </React.Fragment>
+                )}
+              />
+              <Route path="/asset" render={() => <Asset />} />
+            </Switch>
+          </Grid>
         </div>
       </MuiThemeProvider>
     );

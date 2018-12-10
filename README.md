@@ -75,8 +75,27 @@ NASA colours have been selected using the RGB values from [NASA's Style Guide](h
 ## Things to discuss
 
 Sass
+
 Netlify
+
 CircleCI
+
 Linting
+
 Pre-Commit Hooks
+
 Material UI
+
+## Improvements
+
+Video search
+
+Loading state
+
+Empty (no results) state
+
+Paginagtion
+
+Animation
+
+Testing
