@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import { withRouter } from "react-router";
+import { Switch, Route, Redirect } from "react-router-dom";
 import SearchForm from "../src/components/generic/SearchForm";
 import AssetGrid from "../src/components/generic/AssetGrid";
 import theme from "./styles/theme";
@@ -35,11 +36,23 @@ class App extends Component {
     return (
       <MuiThemeProvider theme={theme}>
         <div className="App">
-          <SearchForm
-            handleChange={this.handleChange}
-            buttonClicked={() => this.loadSearchData()}
-          />
-          <AssetGrid data={this.state.searchResult} />
+          <Switch>
+            <Redirect exact from="/" to="search" />
+            <Route
+              exact
+              path="/search"
+              render={() => (
+                <React.Fragment>
+                  <SearchForm
+                    handleChange={this.handleChange}
+                    buttonClicked={() => this.loadSearchData()}
+                  />
+                  <AssetGrid data={this.state.searchResult} />
+                </React.Fragment>
+              )}
+            />
+            <Route path="/asset" render={() => "Hello"} />
+          </Switch>
         </div>
       </MuiThemeProvider>
     );
