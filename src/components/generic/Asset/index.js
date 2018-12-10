@@ -41,7 +41,9 @@ class Asset extends React.Component {
       <React.Fragment>
         <Grid container className="asset" spacing={24}>
           <Grid item>
-            <Typography>{this.state.assetData["XMP:Title"]}</Typography>
+            <Typography variant="h1">
+              {this.state.assetData["XMP:Title"]}
+            </Typography>
           </Grid>
           <Grid item>
             <img
