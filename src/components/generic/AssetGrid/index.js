@@ -30,17 +30,16 @@ class AssetGrid extends React.Component {
               >
                 <Card>
                   {asset.data.map(dataItems => (
-                    <CardHeader key={dataItems.title} h6={dataItems.title} />
+                    <CardHeader key={dataItems.title} title={dataItems.title} />
                   ))}
                   <CardMedia
                     className="assetGridMedia"
                     image={assetLink.href}
-                    h6="Paella dish"
                   />
                   {asset.data.map(dataItems => (
                     <React.Fragment key={dataItems.title}>
                       <CardContent>
-                        <Typography component="p" noWrap>
+                        <Typography variant="body1" noWrap>
                           {dataItems.description}
                         </Typography>
                       </CardContent>
