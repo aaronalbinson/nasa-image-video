@@ -65,8 +65,12 @@ run tests:
 ```
 yarn test
 ```
+or 
+yarn test:nowatch
 
-Tests will run during commit
+The test command will force Jest to run in CI-mode, and tests will only run once instead of launching the watcher.
+
+Tests will also run during each commit
 
 ## Styles
 
@@ -86,6 +90,8 @@ Pre-Commit Hooks
 
 Material UI
 
+Testing
+
 ## Improvements
 
 Video search
@@ -98,4 +104,4 @@ Paginagtion
 
 Animation
 
-Testing
+More Testing
