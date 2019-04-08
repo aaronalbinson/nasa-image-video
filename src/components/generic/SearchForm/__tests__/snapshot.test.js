@@ -1,14 +1,9 @@
 import React from "react";
-import { shallow } from "enzyme";
 import ShallowRenderer from "react-test-renderer/shallow";
-import App from "./App";
-
-it("renders without crashing", () => {
-  shallow(<App />);
-});
+import SearchForm from "../";
 
 it("Matches snapshot", () => {
   const renderer = new ShallowRenderer();
-  const result = renderer.render(<App />);
+  const result = renderer.render(<SearchForm />);
   expect(result).toMatchSnapshot();
 });
