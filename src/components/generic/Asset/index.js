@@ -43,34 +43,30 @@ class Asset extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
-        <Card className="asset">
-          <CardContent>
-            <Grid container className="asset" spacing={24}>
-              <Grid item xs={12}>
-                <Typography variant="h3">
-                  {this.state.assetData["XMP:Title"]
-                    ? this.state.assetData["XMP:Title"]
-                    : this.state.assetid}
-                </Typography>
-              </Grid>
-              <Grid item xs={12}>
-                <img
-                  src={
-                    this.state.assetImageData &&
-                    this.state.assetImageData.items[0].href
-                  }
-                />
-              </Grid>
-              <Grid item>
-                <Typography>
-                  {this.state.assetData["XMP:Description"]}
-                </Typography>
-              </Grid>
+      <Card className="asset">
+        <CardContent>
+          <Grid container className="asset" spacing={24}>
+            <Grid item xs={12}>
+              <Typography variant="h3">
+                {this.state.assetData["XMP:Title"]
+                  ? this.state.assetData["XMP:Title"]
+                  : this.state.assetid}
+              </Typography>
             </Grid>
-          </CardContent>
-        </Card>
-      </React.Fragment>
+            <Grid item xs={12}>
+              <img
+                src={
+                  this.state.assetImageData &&
+                  this.state.assetImageData.items[0].href
+                }
+              />
+            </Grid>
+            <Grid item>
+              <Typography>{this.state.assetData["XMP:Description"]}</Typography>
+            </Grid>
+          </Grid>
+        </CardContent>
+      </Card>
     );
   }
 }

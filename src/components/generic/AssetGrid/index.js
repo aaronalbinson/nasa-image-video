@@ -16,58 +16,53 @@ class AssetGrid extends React.Component {
   render() {
     const data = this.props.data.collection;
     return (
-      <React.Fragment>
-        <Grid container className="assetGrid" spacing={24}>
-          {data ? (
-            data.items.filter(asset => asset.links).map(asset =>
-              asset.links.map(assetLink => (
-                <Grid
-                  item
-                  xs={12}
-                  sm={6}
-                  md={3}
-                  key={assetLink.href}
-                  className="assetGridItem"
-                >
-                  <Card>
-                    {asset.data.map(dataItems => (
-                      <CardHeader
-                        key={dataItems.title}
-                        title={dataItems.title}
-                      />
-                    ))}
-                    <CardMedia
-                      className="assetGridMedia"
-                      image={assetLink.href}
-                      title="Paella dish"
-                    />
-                    {asset.data.map(dataItems => (
-                      <React.Fragment key={dataItems.title}>
-                        <CardContent>
-                          <Typography component="p" noWrap>
-                            {dataItems.description}
-                          </Typography>
-                        </CardContent>
-                        <CardActions>
-                          <Button
-                            component={Link}
-                            to={`/asset/${dataItems.nasa_id}`}
-                            size="small"
-                          >
-                            Learn More
-                          </Button>
-                        </CardActions>
-                      </React.Fragment>
-                    ))}
-                  </Card>
-                </Grid>
-              ))
-            )
-          ) : (
-            <Grid item>Use the search above</Grid>
-          )}
-        </Grid>
-      </React.Fragment>
+      <Grid container className="assetGrid" spacing={24}>
+        {data ? (
+          data.items.filter(asset => asset.links).map(asset =>
+            asset.links.map(assetLink => (
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                md={3}
+                key={assetLink.href}
+                className="assetGridItem"
+              >
+                <Card>
+                  {asset.data.map(dataItems => (
+                    <CardHeader key={dataItems.title} title={dataItems.title} />
+                  ))}
+                  <CardMedia
+                    className="assetGridMedia"
+                    image={assetLink.href}
+                    title="Paella dish"
+                  />
+                  {asset.data.map(dataItems => (
+                    <React.Fragment key={dataItems.title}>
+                      <CardContent>
+                        <Typography component="p" noWrap>
+                          {dataItems.description}
+                        </Typography>
+                      </CardContent>
+                      <CardActions>
+                        <Button
+                          component={Link}
+                          to={`/asset/${dataItems.nasa_id}`}
+                          size="small"
+                        >
+                          Learn More
+                        </Button>
+                      </CardActions>
+                    </React.Fragment>
+                  ))}
+                </Card>
+              </Grid>
+            ))
+          )
+        ) : (
+          <Grid item>Use the search above</Grid>
+        )}
+      </Grid>
     );
   }
 }
