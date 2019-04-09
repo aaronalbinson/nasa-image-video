@@ -65,8 +65,11 @@ run tests:
 ```
 yarn test
 ```
-or 
+or
+
+```
 yarn test:nowatch
+```
 
 The test command will force Jest to run in CI-mode, and tests will only run once instead of launching the watcher.
 
